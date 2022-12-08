@@ -1,0 +1,61 @@
+﻿@model LaCatalanaWeb.Models.Asignacione
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Asignacione</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FechaAsignacion" class="control-label"></label>
+                <input asp-for="FechaAsignacion" class="form-control" />
+                <span asp-validation-for="FechaAsignacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoProceso" class="control-label"></label>
+                <select asp-for="TipoProceso" class ="form-control" asp-items="ViewBag.TipoProceso"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Empleado" class="control-label"></label>
+                <select asp-for="Empleado" class ="form-control" asp-items="ViewBag.Empleado"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpleadoAnterior" class="control-label"></label>
+                <input asp-for="EmpleadoAnterior" class="form-control" />
+                <span asp-validation-for="EmpleadoAnterior" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DetallesAsignaciones" class="control-label"></label>
+                <input asp-for="DetallesAsignaciones" class="form-control" />
+                <span asp-validation-for="DetallesAsignaciones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrlQr" class="control-label"></label>
+                <input asp-for="UrlQr" class="form-control" />
+                <span asp-validation-for="UrlQr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

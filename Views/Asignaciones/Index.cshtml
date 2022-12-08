@@ -1,0 +1,71 @@
+﻿@model IEnumerable<LaCatalanaWeb.Models.Asignacione>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaAsignacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpleadoAnterior)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DetallesAsignaciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrlQr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpleadoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoProcesoNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaAsignacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpleadoAnterior)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DetallesAsignaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlQr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpleadoNavigation.ApellidosEmpleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoProcesoNavigation.NombreProceso)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdAsignacion">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdAsignacion">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdAsignacion">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
