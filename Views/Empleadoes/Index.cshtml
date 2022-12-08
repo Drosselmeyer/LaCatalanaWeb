@@ -1,0 +1,76 @@
+﻿@model IEnumerable<LaCatalanaWeb.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Nuevo Empleado</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombresEmpleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApellidosEmpleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CorreoCorporativo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoCorporativo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RolNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombresEmpleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApellidosEmpleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorreoCorporativo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoCorporativo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoNavigation.NombreDepartamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaNavigation.NombreEmpresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoNavigation.NombreEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RolNavigation.DescripcionRol)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdEmpleado">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdEmpleado">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdEmpleado">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

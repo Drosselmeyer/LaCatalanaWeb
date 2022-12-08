@@ -1,0 +1,34 @@
+﻿@model IEnumerable<LaCatalanaWeb.Models.Empresa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Registrar Empresa</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreEmpresa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreEmpresa)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdEmpresa">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdEmpresa">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdEmpresa">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
